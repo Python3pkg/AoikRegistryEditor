@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-
+from __future__ import absolute_import
 
 from tkinter import IntVar
 from tkinter import messagebox
@@ -1034,7 +1034,7 @@ class RegistryEditor(Vidget):
                 if old_key_name:
                     # For each child key names in the child keys listbox
                     for index, child_key_name in enumerate(
-                            list(self._child_keys_listbox.items())):
+                            self._child_keys_listbox.items()):
                         # If the child key name is EQ the old key name
                         if child_key_name == old_key_name:
                             # Set the index to active
@@ -1406,7 +1406,7 @@ class RegistryEditor(Vidget):
             # If the field type is valid.
 
             # For each field in fields listbox
-            for field in list(self._fields_listbox.items()):
+            for field in self._fields_listbox.items():
                 # If the field name exists
                 if field.name().lower() == field_name.lower():
                     # Show error dialog
@@ -1444,7 +1444,7 @@ class RegistryEditor(Vidget):
                 self._fields_listbox_on_nav_pathcur_change()
 
                 # For each field in fields listbox
-                for index, field in enumerate(list(self._fields_listbox.items())):
+                for index, field in enumerate(self._fields_listbox.items()):
                     # If the field's name is EQ the newly created field name
                     if field.name().lower() == field_name.lower():
                         # Set the index to active
@@ -1832,7 +1832,7 @@ class RegistryEditor(Vidget):
                     if field_name is not None:
                         # For each field in fields listbox
                         for index, field in enumerate(
-                            list(self._fields_listbox.items())
+                            self._fields_listbox.items()
                         ):
                             # If the field's name is EQ field name in the spec
                             if field.name().lower() == field_name.lower():

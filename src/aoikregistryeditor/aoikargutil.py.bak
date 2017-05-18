@@ -1,5 +1,5 @@
 # coding: utf-8
-
+from __future__ import absolute_import
 from argparse import ArgumentTypeError
 import itertools
 import re
@@ -161,8 +161,8 @@ def ensure_exc(parser, spec, args=None):
             arg_b_rec = re.compile('^%s($|=|[0-9])' % arg_b)
 
             #/
-            if any([bool(arg_a_rec.search(x)) for x in args])\
-            and any([bool(arg_b_rec.search(x)) for x in args]):
+            if any(map(lambda x: bool(arg_a_rec.search(x)), args))\
+            and any(map(lambda x: bool(arg_b_rec.search(x)), args)):
                 #/
                 msg = 'argument %s: not allowed with argument %s' % (arg_a, arg_b)
 
@@ -235,7 +235,7 @@ def ensure_one(parser, spec, args=None):
             arg_name_rec = re.compile('^%s($|=|[0-9])' % arg_name)
 
             #/
-            arg_name_exists = any([bool(arg_name_rec.search(x)) for x in args])
+            arg_name_exists = any(map(lambda x: bool(arg_name_rec.search(x)), args))
 
             if arg_name_exists:
                 #/

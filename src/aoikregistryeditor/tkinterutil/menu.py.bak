@@ -1,6 +1,6 @@
 # coding: utf-8
 #
-
+from __future__ import absolute_import
 
 from collections import OrderedDict
 from tkinter import Menu
@@ -218,7 +218,7 @@ class MenuTree(object):
         child_index_s = []
 
         # For each item info dict
-        for info in list(self._id_to_info.values()):
+        for info in self._id_to_info.values():
             # Get the item PID
             pid = info[self.INFO_K_PID]
 
@@ -393,7 +393,7 @@ class MenuTree(object):
 
         # Shift indexes of other child item info dicts.
         # For each item info dict.
-        for info in list(self._id_to_info.values()):
+        for info in self._id_to_info.values():
             # Get the item's PID
             pid_x = info[self.INFO_K_PID]
 
